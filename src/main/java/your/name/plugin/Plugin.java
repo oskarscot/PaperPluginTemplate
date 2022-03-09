@@ -5,6 +5,7 @@ import eu.okaeri.configs.json.gson.JsonGsonConfigurer;
 import eu.okaeri.configs.yaml.bukkit.serdes.SerdesBukkit;
 import eu.okaeri.injector.Injector;
 import eu.okaeri.injector.OkaeriInjector;
+import java.io.File;
 import java.util.logging.Logger;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
@@ -41,7 +42,7 @@ public final class Plugin extends JavaPlugin {
   private void loadConfig(){
     Configuration configuration = ConfigManager.create(Configuration.class, it ->
         it.withConfigurer(new JsonGsonConfigurer(), new SerdesBukkit())
-            .withBindFile(this.getDataFolder())
+            .withBindFile(new File(this.getDataFolder(), "config.json"))
             .saveDefaults()
             .load(true)
     );
