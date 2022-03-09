@@ -1,0 +1,5 @@
+name: ${project.artifactId}
+version: ${project.version}
+author: 'yourName'
+main: 'your.name.plugin.Plugin'
+api-version: 1.18
